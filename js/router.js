@@ -6,7 +6,6 @@ Portfolio.Router.map(function() {
 
 Portfolio.ProjectsRoute = Ember.Route.extend({
 	model: function() {
-		Ember.Logger.debug("Projects route");
 		return this.store.find('project');
 	}
 });
@@ -14,20 +13,40 @@ Portfolio.ProjectsRoute = Ember.Route.extend({
 Portfolio.ProjectRoute = Ember.Route.extend({
 	actions: {
 		nextImage: function(photo) {
-			var sel = photo.get('project').get('selected');
+			var proj = photo.get('project'); 
+			var sel = proj.get('selected');
 			var next = sel + 1;
-			var imgCount = photo.get('project').get('imageCount');
+			var dispNext = next + 1;
 
-			if (next > imgCount)
+			var imgCount = proj.get('imageCount');
+
+			console.log(sel + " " + next);
+
+			if (next > (imgCount - 1)) // minus one to get max index
 			{
-				next = 1;
+				next = 0;
+				dispNext = 1;
 			}
 
-			photo.get('project').set('selected', next);
-			photo.set('isSelected', false); // set current not selected
+			proj.set('selected', next);
+			proj.set('dispSelected', dispNext);
+			photo.set('isSelected', false);
 
-			var nextImg = this.store.find('photo', next);
-			nextImg.set('isSelected', true);
+			var photos = proj.get('photos');
+
+			//satisfy promise array
+			photos.then(function() {
+				photos.objectAt(next).set('isSelected', true);
+			});
+			
+			// 
+
+			// photo.get('project').set('selected', next);
+			// photo.set('isSelected', false); // set current not selected
+
+			// var nextImg = photo.get('project').get('photos');
+			// console.log(nextImg.get('imageUrl'));
+			
 		}
 	},
 	model: function(params) {

@@ -5,11 +5,38 @@ Portfolio.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 Portfolio.IndexView = Ember.View.extend({
 	didInsertElement: function() {
-		Ember.run.scheduleOnce('afterRender', this, 'processChildElements');
+		Ember.run.schedule('afterRender', this, 'processChildElements');
 	},
 
 	processChildElements: function() {
 		setThumbnails();
+
+		$('#brand').click(function() {
+			var sideBar = $('#sidebar > ul').children();
+			var sub = $('#sidebar > ul > li > ul').children('li');
+			clearNavHighlight(sideBar, sub);
+		});
+
+		$('.thumbnail').hover(
+			function() { // hover in
+				var text = $( this ).children('p').children('span').text();
+				var sideBar = $('#sidebar > ul').children();
+				var sub = $('#sidebar > ul > li > ul').children('li');
+					
+				var navElem = findNavElem(text, sideBar, sub);
+
+				navElem.toggleClass("hovered-nav");
+
+			}, function() { // hover out
+				var text = $( this ).children('p').children('span').text();
+				var sideBar = $('#sidebar > ul').children();
+				var sub = $('#sidebar > ul > li > ul').children('li');
+					
+				var navElem = findNavElem(text, sideBar, sub);
+
+				navElem.toggleClass("hovered-nav");
+			}
+		);
 	}
 });
 
@@ -116,33 +143,4 @@ highlightSideBar = function() {
 	console.log("Testing highlight");
 };
 
-$(document).ready(function() {
 
-	$('.thumbnail').hover(
-		function() { // hover in
-			var text = $( this ).children('p').children('span').text();
-			var sideBar = $('#sidebar > ul').children();
-			var sub = $('#sidebar > ul > li > ul').children('li');
-				
-			var navElem = findNavElem(text, sideBar, sub);
-
-			navElem.toggleClass("hovered-nav");
-
-		}, function() { // hover out
-			var text = $( this ).children('p').children('span').text();
-			var sideBar = $('#sidebar > ul').children();
-			var sub = $('#sidebar > ul > li > ul').children('li');
-				
-			var navElem = findNavElem(text, sideBar, sub);
-
-			navElem.toggleClass("hovered-nav");
-		}
-	);
-
-	$('#brand').click(function() {
-		var sideBar = $('#sidebar > ul').children();
-		var sub = $('#sidebar > ul > li > ul').children('li');
-		clearNavHighlight(sideBar, sub);
-	});
-
-});

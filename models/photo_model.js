@@ -2,6 +2,7 @@ Portfolio.Project = DS.Model.extend({
 	photos: DS.hasMany('photo', {async:true}),
 	projectName: DS.attr('string'),
 	selected: DS.attr('int'),
+	dispSelected: DS.attr('int'),
 	imageCount: DS.attr('int')
 });
 
@@ -16,14 +17,16 @@ Portfolio.Project.FIXTURES = [
 		id: '1',
 		projectName: "LA",
 		photos: [1,2,3,4],
-		selected: 1,
+		selected: 0,
+		dispSelected: 1,
 		imageCount: 4
 	},
 	{
 		id: '2',
 		projectName: "Music",
 		photos: [5,6,7,8],
-		selected: 1,
+		selected: 0,
+		dispSelected: 1,
 		imageCount: 4
 	}
 ];
