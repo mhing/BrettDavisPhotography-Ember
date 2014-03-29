@@ -134,3 +134,7 @@ a.thumbnail:hover span {
 	right: 10px;
 	height: 100px;
 }
+
+.thumbnailHover {
+	background-color: yellow;
+}

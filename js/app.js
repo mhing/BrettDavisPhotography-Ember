@@ -27,7 +27,8 @@ Portfolio.IndexView = Ember.View.extend({
 
 				navElem.toggleClass("hovered-nav");
 
-			}, function() { // hover out
+			}, 
+			function() { // hover out
 				var text = $( this ).children('p').children('span').text();
 				var sideBar = $('#sidebar > ul').children();
 				var sub = $('#sidebar > ul > li > ul').children('li');
@@ -35,6 +36,15 @@ Portfolio.IndexView = Ember.View.extend({
 				var navElem = findNavElem(text, sideBar, sub);
 
 				navElem.toggleClass("hovered-nav");
+			}
+		);
+
+		$('.nav-link').hover(
+			function() { // hover in
+				highlightThumbnail($(this).text());
+			},
+			function() { // hover out
+				highlightThumbnail($(this).text());
 			}
 		);
 	}
@@ -159,10 +169,18 @@ clearNavHighlight = function(sideBar, sub) {
 			}
 		}
 	}
-}
+};
 
-highlightSideBar = function() {
-	console.log("Testing highlight");
+highlightThumbnail = function(navLabel) {
+	var thumbs = $("#photo-container").children().children().children().children("p");
+
+	for (var i = 0; i < thumbs.length; i++)
+	{
+		if ($(thumbs[i]).text() === navLabel)
+		{
+			$(thumbs[i]).children('span').toggleClass('thumbnailHover');
+		}
+	}
 };
 
 
