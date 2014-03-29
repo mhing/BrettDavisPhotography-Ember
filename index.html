@@ -62,28 +62,28 @@
     <script type="text/x-handlebars" data-template-name="_sidebar">
       <div id="sidebar" class="col-md-3">
         <ul>
-          <li>{{#link-to 'project' 1}}Dai Kinchō Preview{{/link-to}}</li>
+          <li>{{#link-to 'project' 1 class="nav-link"}}Dai Kinchō Preview{{/link-to}}</li>
           <li>
             <i>Cities</i>
             <ul class="sub-list">
-              <li>{{#link-to 'project' 2}}nyc{{/link-to}}</li>
-              <li>{{#link-to 'project' 3}}xpncy{{/link-to}}</li>
-              <li>{{#link-to 'project' 4}}LA{{/link-to}}</li>
+              <li>{{#link-to 'project' 2 class="nav-link"}}nyc{{/link-to}}</li>
+              <li>{{#link-to 'project' 3 class="nav-link"}}xpnyc{{/link-to}}</li>
+              <li>{{#link-to 'project' 4 class="nav-link"}}LA{{/link-to}}</li>
             </ul>
           </li>
           <li>
             <i>Nylon Mexico</i>
             <ul class="sub-list">
-              <li>{{#link-to 'project' 5}}#Lubagram{{/link-to}}</li>
-              <li>{{#link-to 'project' 6}}Auburn Burns Hot{{/link-to}}</li>
+              <li>{{#link-to 'project' 5 class="nav-link"}}#Lubagram{{/link-to}}</li>
+              <li>{{#link-to 'project' 6 class="nav-link"}}Auburn Burns Hot{{/link-to}}</li>
             </ul>
           </li>
-          <li>{{#link-to 'project' 7}}Tmby Fr$h - Fantastics{{/link-to}}</li>
-          <li>{{#link-to 'project' 8}}Kendal Elder - Quick Fix #8{{/link-to}}</li>
-          <li>{{#link-to 'project' 9}}Madison Sells{{/link-to}}</li>
-          <li>{{#link-to 'project' 10}}Ana Castelo{{/link-to}}</li>
-          <li>{{#link-to 'project' 11}}Margo Szabo{{/link-to}}</li>
-          <li>{{#link-to 'project' 12}}Music{{/link-to}}</li>
+          <li>{{#link-to 'project' 7 class="nav-link"}}Tmby Fr$h - Fantastics{{/link-to}}</li>
+          <li>{{#link-to 'project' 8 class="nav-link"}}Kendal Elder - Quick Fix #8{{/link-to}}</li>
+          <li>{{#link-to 'project' 9 class="nav-link"}}Madison Sells{{/link-to}}</li>
+          <li>{{#link-to 'project' 10 class="nav-link"}}Ana Castelo{{/link-to}}</li>
+          <li>{{#link-to 'project' 11 class="nav-link"}}Margo Szabo{{/link-to}}</li>
+          <li>{{#link-to 'project' 12 class="nav-link"}}Music{{/link-to}}</li>
         </ul>
       </div>
     </script>
@@ -119,70 +119,70 @@
             {{/link-to}}
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 3 class="thumbnail"}}
               <div id="thumb-3" class="tile"></div>
               <p><span>xpnyc</span></p>
-            </a>
+            {{/link-to}}
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 4 class="thumbnail"}}
               <div id="thumb-4" class="tile"></div>
               <p><span>LA</span></p>
-            </a>
+            {{/link-to}}
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 5 class="thumbnail"}}
               <div id="thumb-5" class="tile"></div>
               <p><span>#Lubagram</span></p>
-            </a>
+            {{/link-to}}
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 6 class="thumbnail"}}
               <div id="thumb-6" class="tile"></div>
               <p><span>Auburn Burns Hot</span></p>
-            </a>
+            {{/link-to}}
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 7 class="thumbnail"}}
               <div id="thumb-7" class="tile"></div>
               <p><span>Tmby Fr$h - Fantastics</span></p>
-            </a>
+            {{/link-to}}
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 8 class="thumbnail"}}
               <div id="thumb-8" class="tile"></div>
               <p><span>Kendal Elder - Quick Fix #8</span></p>
-            </a>
+            {{/link-to}}
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 9 class="thumbnail"}}
               <div id="thumb-9" class="tile"></div>
               <p><span>Madison Sells</span></p>
-            </a>
+            {{/link-to}}
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 10 class="thumbnail"}}
               <div id="thumb-10" class="tile"></div>
-              <p><span>Ana Catelo</span></p>
-            </a>
+              <p><span>Ana Castelo</span></p>
+            {{/link-to}}
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 11 class="thumbnail"}}
               <div id="thumb-11" class="tile"></div>
               <p><span>Margo Szabo</span></p>
-            </a>
+            {{/link-to}}
           </div>
           <div class="col-xs-6 col-md-4">
-            <a href="" class="thumbnail">
+            {{#link-to 'project' 12 class="thumbnail"}}
               <div id="thumb-12" class="tile"></div>
               <p><span>Music</span></p>
-            </a>
+            {{/link-to}}
           </div>
         </div>
       </div>

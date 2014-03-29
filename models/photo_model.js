@@ -330,7 +330,7 @@ Portfolio.Photo.FIXTURES = [
 	},
 	{
 		id: '34',
-		imageUrl: "images/kendal-elder/2.jpg",
+		imageUrl: "images/kendal-elder/5.jpg",
 		isSelected: false,
 		project: 8
 	},

@@ -46,7 +46,19 @@ Portfolio.ProjectView = Ember.View.extend({
 	},
 
 	processChildElements: function() {
+		$('#brand').click(function() {
+			var sideBar = $('#sidebar > ul').children();
+			var sub = $('#sidebar > ul > li > ul').children('li');
+			clearNavHighlight(sideBar, sub);
+		});
 
+		$('.nav-link').click(function() {
+			var sideBar = $('#sidebar > ul').children();
+			var sub = $('#sidebar > ul > li > ul').children('li');
+			clearNavHighlight(sideBar, sub);
+
+			$(this).addClass("hovered-nav");
+		});
 	}
 });
 
