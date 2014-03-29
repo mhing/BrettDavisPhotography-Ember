@@ -67,23 +67,23 @@
             <i>Cities</i>
             <ul class="sub-list">
               <li>{{#link-to 'project' 2}}nyc{{/link-to}}</li>
-              <li><a href="">xpnyc</a></li>
-              <li><a href="">LA</a></li>
+              <li>{{#link-to 'project' 3}}xpncy{{/link-to}}</li>
+              <li>{{#link-to 'project' 4}}LA{{/link-to}}</li>
             </ul>
           </li>
           <li>
             <i>Nylon Mexico</i>
             <ul class="sub-list">
-              <li><a href="">#Lubagram</a></li>
-              <li><a href="">Auburn Burns Hot</a></li>
+              <li>{{#link-to 'project' 5}}#Lubagram{{/link-to}}</li>
+              <li>{{#link-to 'project' 6}}Auburn Burns Hot{{/link-to}}</li>
             </ul>
           </li>
-          <li><a href=''>Tmby Fr$h - Fantastics</a></li>
-          <li><a href=''>Kendal Elder - Quick Fix #8</a></li>
-          <li><a href=''>Madison Sells</a></li>
-          <li><a href=''>Ana Castelo</a></li>
-          <li><a href=''>Margo Szabo</a></li>
-          <li><a href=''>Music</a></li>
+          <li>{{#link-to 'project' 7}}Tmby Fr$h - Fantastics{{/link-to}}</li>
+          <li>{{#link-to 'project' 8}}Kendal Elder - Quick Fix #8{{/link-to}}</li>
+          <li>{{#link-to 'project' 9}}Madison Sells{{/link-to}}</li>
+          <li>{{#link-to 'project' 10}}Ana Castelo{{/link-to}}</li>
+          <li>{{#link-to 'project' 11}}Margo Szabo{{/link-to}}</li>
+          <li>{{#link-to 'project' 12}}Music{{/link-to}}</li>
         </ul>
       </div>
     </script>
@@ -194,11 +194,11 @@
 
     <script type="text/x-handlebars" id="project">
       <div id="photo-container">
-          <div class="row">
+          <div class="row center-count">
             <h2>
               {{projectName}}
             </h2>
-            <p class="center-count">({{dispSelected}} of {{imageCount}})</p>
+            <p>({{dispSelected}} of {{imageCount}})</p>
           </div>
           <div class="row">
             {{#each photo in photos}}

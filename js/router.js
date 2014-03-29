@@ -20,8 +20,6 @@ Portfolio.ProjectRoute = Ember.Route.extend({
 
 			var imgCount = proj.get('imageCount');
 
-			console.log(sel + " " + next);
-
 			if (next > (imgCount - 1)) // minus one to get max index
 			{
 				next = 0;
@@ -37,20 +35,11 @@ Portfolio.ProjectRoute = Ember.Route.extend({
 			//satisfy promise array
 			photos.then(function() {
 				photos.objectAt(next).set('isSelected', true);
-			});
-			
-			// 
-
-			// photo.get('project').set('selected', next);
-			// photo.set('isSelected', false); // set current not selected
-
-			// var nextImg = photo.get('project').get('photos');
-			// console.log(nextImg.get('imageUrl'));
-			
+			});			
 		}
 	},
+
 	model: function(params) {
-		Ember.Logger.debug("Project route");
 		return this.store.find('project', params.project_id);
 	}
 });
