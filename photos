@@ -1,0 +1,12 @@
+{ "photos": [
+    { "id": "1", "image_url": "images/la/1.jpg"},
+    { "id": "2", "image_url": "images/la/2.jpg"},
+    { "id": "3", "image_url": "images/la/3.jpg"},
+    { "id": "4", "image_url": "images/la/4.jpg"},
+    { "id": "5", "image_url": "images/la/5.jpg"},
+    { "id": "6", "image_url": "images/la/6.jpg"},
+    { "id": "7", "image_url": "images/music/1.jpg"},
+    { "id": "8", "image_url": "images/music/2.jpg"},
+    { "id": "9", "image_url": "images/music/3.jpg"},
+    { "id": "10", image_url": "images/music/4.jpg"}
+]}

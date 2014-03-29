@@ -118,3 +118,18 @@ a.thumbnail:hover span {
 	width: 670px;
 	text-align: center;
 }
+
+.thumbnailItem {
+	width: 75px;
+	height: 75px;
+	float: left;
+	margin-right: 10px;
+}
+
+.thumbnailViewList {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	right: 10px;
+	height: 100px;
+}

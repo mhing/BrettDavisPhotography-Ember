@@ -1,62 +1,18 @@
-App = Ember.Application.create();
+Portfolio = Ember.Application.create();
 
-App.Router.map(function() {
-	this.resource('contact');
-	this.resource('projects');
-	this.resource('project', { path: ':project_id' });
-});
+Portfolio.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 
-App.ProjectsRoute = Ember.Route.extend({
-	model: function() {
-		return projects;
-	}
-});
-
-App.ProjectRoute = Ember.Route.extend({
-  model: function(params) {
-    return projects[params.project_id - 1];
-  }
-});
-
-App.IndexView = Ember.View.extend({
+Portfolio.IndexView = Ember.View.extend({
 	didInsertElement: function() {
-    Ember.run.scheduleOnce('afterRender', this, 'processChildElements');
-  },
+		Ember.run.scheduleOnce('afterRender', this, 'processChildElements');
+	},
 
-  processChildElements: function() {
-    setThumbnails();
-  }
+	processChildElements: function() {
+		setThumbnails();
+	}
 });
 
-// App.Projects = DS.Model.extend({
-// 	title: DS.attr('string'),
-// 	images: DS.attr('array')
-// });
-
-
-var projects = [
-	{
-		id: 1,
-		title: "Dai Kinchō Preview",
-		images: [
-			"images/dai-kincho-preview/1.jpg",
-			"images/dai-kincho-preview/2.jpg"
-		],
-		currentImage: 1,
-		imageCount: 2
-	},
-	{
-		id: 2,
-		title: "nyc",
-		images: [
-			"images/nyc/1.jpg",
-			"images/nyc/2.jpg"
-		],
-		currentImage: 1,
-		imageCount: 2
-	}
-];
 
 thumbnails = ['images/thumbnails/dai-kincho.jpg',
 			  'images/thumbnails/nyc.jpg',
@@ -132,6 +88,34 @@ findNavElem = function(text, sideBar, sub) {
 	}
 };
 
+clearNavHighlight = function(sideBar, sub) {
+	for (var i = 0; i < sideBar.length; i++)
+	{
+		var elem = $(sideBar[i].firstChild);
+
+		if (elem.is('a'))
+		{
+			elem.removeClass("hovered-nav");
+		}
+		else
+		{
+			for (var j = 0; j < sub.length; j++)
+			{
+				var subElem = $(sub[j].firstChild);
+
+				if (subElem.is('a'))
+				{
+					subElem.removeClass("hovered-nav");
+				}
+			}
+		}
+	}
+}
+
+highlightSideBar = function() {
+	console.log("Testing highlight");
+};
+
 $(document).ready(function() {
 
 	$('.thumbnail').hover(
@@ -154,5 +138,11 @@ $(document).ready(function() {
 			navElem.toggleClass("hovered-nav");
 		}
 	);
+
+	$('#brand').click(function() {
+		var sideBar = $('#sidebar > ul').children();
+		var sub = $('#sidebar > ul > li > ul').children('li');
+		clearNavHighlight(sideBar, sub);
+	});
 
 });
