@@ -195,12 +195,12 @@
     <script type="text/x-handlebars" id="project">
       <div id="photo-container">
           <div class="row center-count">
-            <h2>
+            <h3>
               {{projectName}}
-            </h2>
+            </h3>
             <p>({{dispSelected}} of {{imageCount}})</p>
           </div>
-          <div class="row">
+          <div class="row" id="galleryImage">
             {{#each photo in photos}}
               {{#if photo.isSelected}}
                 <img {{action "nextImage" photo}} {{bind-attr src=photo.imageUrl}}></img>

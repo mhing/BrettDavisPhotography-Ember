@@ -40,6 +40,16 @@ Portfolio.IndexView = Ember.View.extend({
 	}
 });
 
+Portfolio.ProjectView = Ember.View.extend({	
+	didInsertElement: function() {
+		Ember.run.schedule('afterRender', this, 'processChildElements');
+	},
+
+	processChildElements: function() {
+
+	}
+});
+
 
 thumbnails = ['images/thumbnails/dai-kincho.jpg',
 			  'images/thumbnails/nyc.jpg',

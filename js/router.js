@@ -13,29 +13,36 @@ Portfolio.ProjectsRoute = Ember.Route.extend({
 Portfolio.ProjectRoute = Ember.Route.extend({
 	actions: {
 		nextImage: function(photo) {
-			var proj = photo.get('project'); 
-			var sel = proj.get('selected');
-			var next = sel + 1;
-			var dispNext = next + 1;
+			$( "#galleryImage" ).fadeOut(800, function() {
 
-			var imgCount = proj.get('imageCount');
+				var proj = photo.get('project'); 
+				var sel = proj.get('selected');
+				var next = sel + 1;
+				var dispNext = next + 1;
 
-			if (next > (imgCount - 1)) // minus one to get max index
-			{
-				next = 0;
-				dispNext = 1;
-			}
+				var imgCount = proj.get('imageCount');
 
-			proj.set('selected', next);
-			proj.set('dispSelected', dispNext);
-			photo.set('isSelected', false);
+				if (next > (imgCount - 1)) // minus one to get max index
+				{
+					next = 0;
+					dispNext = 1;
+				}
 
-			var photos = proj.get('photos');
+				proj.set('selected', next);
+				proj.set('dispSelected', dispNext);
 
-			//satisfy promise array
-			photos.then(function() {
-				photos.objectAt(next).set('isSelected', true);
-			});			
+				photo.set('isSelected', false);
+
+				var photos = proj.get('photos');
+
+				//satisfy promise array
+				photos.then(function() {
+					photos.objectAt(next).set('isSelected', true);
+					$( "#galleryImage" ).removeAttr( "style" ).hide();
+				});
+			}).delay(200);
+
+			$( "#galleryImage" ).removeAttr( "style" ).fadeIn(800);
 		}
 	},
 
