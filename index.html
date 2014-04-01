@@ -97,7 +97,7 @@
 
     <script type="text/x-handlebars" data-template-name="photo-view-list">
       {{#each content}}
-        <div class="thumbnailItem">
+        <div class="thumbnailItem" style="cursor: pointer;">
           <img {{bindAttr src="imageUrl"}} style="width: 100%; height: 100%;"/>
         </div>
       {{/each}}
@@ -203,7 +203,9 @@
           <div class="row" id="galleryImage">
             {{#each photo in photos}}
               {{#if photo.isSelected}}
-                <img {{action "nextImage" photo}} {{bind-attr src=photo.imageUrl}}></img>
+                <a href="">
+                  <img {{action "nextImage" photo}} {{bind-attr src=photo.imageUrl}}></img>
+                </a>
               {{/if}}
             {{/each}}
           </div>
