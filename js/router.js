@@ -10,9 +10,18 @@ Portfolio.ProjectsRoute = Ember.Route.extend({
 	}
 });
 
+var stopClick = false;
+
 Portfolio.ProjectRoute = Ember.Route.extend({
 	actions: {
 		nextImage: function(photo) {
+
+			if (stopClick) { // prevent rapid clicks
+				return;
+			}
+
+			stopClick = true;
+
 			$( "#galleryImage" ).fadeOut(800, function() {
 
 				var proj = photo.get('project'); 
@@ -42,7 +51,9 @@ Portfolio.ProjectRoute = Ember.Route.extend({
 				});
 			}).delay(200);
 
-			$( "#galleryImage" ).removeAttr( "style" ).fadeIn(800);
+			$( "#galleryImage" ).removeAttr( "style" ).fadeIn(800, function() {
+				stopClick = false;
+			});
 		}
 	},
 

@@ -2,7 +2,6 @@ Portfolio = Ember.Application.create();
 
 Portfolio.ApplicationAdapter = DS.FixtureAdapter.extend();
 
-
 Portfolio.IndexView = Ember.View.extend({
 	didInsertElement: function() {
 		Ember.run.schedule('afterRender', this, 'processChildElements');
@@ -56,6 +55,11 @@ Portfolio.ProjectView = Ember.View.extend({
 	},
 
 	processChildElements: function() {
+		var header = $('#photo-container').children(0).children('h3').text().trim();
+
+		// Handle reload of proj page
+		updateSideBarHighlight(header);
+
 		$('#brand').click(function() {
 			var sideBar = $('#sidebar > ul').children();
 			var sub = $('#sidebar > ul > li > ul').children('li');
@@ -67,11 +71,47 @@ Portfolio.ProjectView = Ember.View.extend({
 			var sub = $('#sidebar > ul > li > ul').children('li');
 			clearNavHighlight(sideBar, sub);
 
+			selectedProj = $(this);
+
 			$(this).addClass("hovered-nav");
 		});
 	}
 });
 
+updateSideBarHighlight = function(projHeader) {
+
+	var sideBar = $('#sidebar > ul').children();
+	var sub = $('#sidebar > ul > li > ul').children('li');
+
+	for (var i = 0; i < sideBar.length; i++)
+	{
+		var elem = $(sideBar[i].firstChild);
+
+		if (elem.is('a'))
+		{
+			if (elem.text() === projHeader)
+			{
+				elem.addClass("hovered-nav");
+			}
+		}
+		else
+		{
+			for (var j = 0; j < sub.length; j++)
+			{
+				var subElem = $(sub[j].firstChild);
+
+				if (subElem.is('a'))
+				{
+					if (subElem.text() === projHeader)
+					{
+						subElem.addClass("hovered-nav");
+					}
+				}
+			}
+		}
+	}
+
+};
 
 thumbnails = ['images/thumbnails/dai-kincho.jpg',
 			  'images/thumbnails/nyc.jpg',
